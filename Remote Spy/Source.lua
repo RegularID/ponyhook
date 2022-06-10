@@ -19,11 +19,11 @@ if _G.PonySpy and _G.PonySpy.Kill then
 end
 
 
-Settings = Import("Settings")
+Settings = import("Settings")
 Settings:Load()
 
-Menu = Import("Menu")
-Index = Import("Index")
+Menu = import("Menu")
+Index = import("Index")
 
 _G.PonySpy = {}
 function _G.PonySpy.Kill()
