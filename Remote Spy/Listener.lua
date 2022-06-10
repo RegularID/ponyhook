@@ -21,7 +21,7 @@ local lower_first_letter = function(String)
     return string.sub(String, 1, 1):lower() .. string.sub(String, 2)
 end
 
-local Hooks = Import("Hooks")
+local Hooks = import("Hooks")
 
 local RunService = game:GetService("RunService")
 local HttpService = game:GetService("HttpService")

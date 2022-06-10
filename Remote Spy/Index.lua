@@ -1,7 +1,7 @@
 local Index = {}
 local Remotes = {}
 
-Listener = Import("Listener")
+Listener = import("Listener")
 
 local function CreateLog(Remote)
     if Remotes[Remote] then

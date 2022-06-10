@@ -3,9 +3,9 @@
 ]]
 
 local Menu = {}
-local _Menu = Import("Libraries/Menu")
-local Compiler = Import("Compiler")
-local Highlighter = Import("Syntaxer/Source")
+local _Menu = import("Libraries/Menu")
+local Compiler = import("Compiler")
+local Highlighter = import("Syntaxer/Source")
 
 
 local get_table_length = function(Table)

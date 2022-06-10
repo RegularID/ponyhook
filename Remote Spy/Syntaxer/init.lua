@@ -1,4 +1,4 @@
-local Lexer = Import("Syntaxer/lexer/init")
+local Lexer = import("Syntaxer/lexer/init")
 
 local TokenColors = {}
 local TokenFormats = {}
