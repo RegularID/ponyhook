@@ -15,7 +15,7 @@ function import(Name: string)
     local Name = string.gsub(Name, "%s", "%%20") -- Replacing Spaces with %20's
     local Url = RepositoryPath .. Name .. ".lua"
     local Response = request({Url = Url})
-    local Source = loadstring(Response.Body)
+    local Source = loadstring(Response.Body, Name)
     local Success, Result = pcall(Source)
     
     if not Success then
