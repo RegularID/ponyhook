@@ -18,14 +18,9 @@ function import(Name: string)
     local Source = loadstring(Response.Body, Name)
     local Success, Result = pcall(Source)
     
-    if not Success then
-        if Source == nil then
-            warn("Url: " .. Url .. " " .. Response.StatusMessage)
-        else
-            warn(Result)
-        end
-        
-        return
+    if not Success then 
+        warn(Source == nil and "Url: " .. Url .. " " .. Response.StatusMessage or Result)
+        return 
     end
     
     getfenv()[Name] = Result
