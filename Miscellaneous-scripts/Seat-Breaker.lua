@@ -2,7 +2,7 @@ local Player = game:GetService("Players").LocalPlayer
 local Character = Player.Character
 local Humanoid = Character:WaitForChild("Humanoid")
 
-local function FindOpenSeat()
+local function FindAvailableSeat()
     local Seats = {}
     for _, v in ipairs(workspace:GetDescendants()) do -- workspace:GetDescendants() cry about it
         if v:IsA("Seat") then
@@ -17,7 +17,7 @@ local function FindOpenSeat()
     end
 end
 
-local Seat = FindOpenSeat()
+local Seat = FindAvailableSeat()
 
 -- basically the indicator here is that if u don't die GOOD JOB
 if Seat then
