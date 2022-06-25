@@ -1,6 +1,6 @@
 local Syntaxer = {}
 
-local Lexer = import("Syntaxer/init")
+local Lexer = import "Syntaxer/init"
 
 
 function Syntaxer:Highlight(TextObject, String)

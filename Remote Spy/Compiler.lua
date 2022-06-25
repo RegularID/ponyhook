@@ -1,6 +1,8 @@
 local Compiler = {}
 local NullInstances = {}
 
+local Settings = import "Settings"
+
 local math_round = function(Number, Decimals)
     Decimals = Decimals or 0
     return string.format("%." .. Decimals .. "f", Number)
@@ -51,6 +53,9 @@ function _G.GetNull(Index)
     return NullInstances[Index]
 end
 
+
+-- This function should be transformed into a UserDataToTable
+-- for example we could use like CFrames to do {p = a, LookVector = b, RightVector = c, X = 999}
 function Compiler:InstanceToTable(self:Instance, All:boolean):table
     local function Recurse(self:table, Function:Function):table
         local Result = {}
@@ -110,6 +115,7 @@ function Compiler:GetPath(self)
 
     local Service = table.remove(Parents, 1)
     
+    -- this is messy
     if self == game then
         return "game"
     elseif self == workspace then
@@ -117,10 +123,12 @@ function Compiler:GetPath(self)
     elseif Service == workspace then
         Path = "workspace"
     elseif Service == Players then
+        -- i think it should be like this
+        Path = "game:GetService(\"Players\")
         if typeof(Parents) == "table" and Parents[1] == Players.LocalPlayer then
-            Path = "game:GetService(\"Players\").LocalPlayer"
+            Path ..= ".LocalPlayer"
             table.remove(Parents, 1)
-            print(Parents[1])
+            -- print(Parents[1])
             if Parents[1] == Players.LocalPlayer.Character then
                 Path ..= ".Character"
                 table.remove(Parents, 1)

@@ -10,6 +10,9 @@ local Listening = true
 
 local SchedulerUpdater
 
+local Hooks = import "Hooks"
+local Settings = import "Settings"
+
 
 local request = request or http and http.request or syn and syn.request
 local is_lua_closure = islclosure or function(f)
@@ -20,8 +23,6 @@ local get_callback_value = getcallbackmember or getcallbackvalue or get_callback
 local lower_first_letter = function(String)
     return string.sub(String, 1, 1):lower() .. string.sub(String, 2)
 end
-
-local Hooks = import("Hooks")
 
 local RunService = game:GetService("RunService")
 local HttpService = game:GetService("HttpService")
@@ -113,7 +114,7 @@ local function UpdateScheduler()
             elseif self:IsA("RemoteFunction") then
                 local Callback = get_callback_value(self, "OnClientInvoke")
                 if Callback then
-                    
+                    -- why is this just empty?
                 end
             elseif self:IsA("BindableEvent") then
                 if CheckSignalConnection(self) then
@@ -125,7 +126,7 @@ local function UpdateScheduler()
             elseif self:IsA("BindableFunction") then
                 local Callback = get_callback_value(self, "OnInvoke")
                 if Callback then
-                    
+                    -- why is this just empty?
                 end
             end
         end)
