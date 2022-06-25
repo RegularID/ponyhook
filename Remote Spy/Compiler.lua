@@ -124,7 +124,7 @@ function Compiler:GetPath(self)
         Path = "workspace"
     elseif Service == Players then
         -- i think it should be like this
-        Path = "game:GetService(\"Players\")
+        Path = "game:GetService(\"Players\")"
         if typeof(Parents) == "table" and Parents[1] == Players.LocalPlayer then
             Path ..= ".LocalPlayer"
             table.remove(Parents, 1)
