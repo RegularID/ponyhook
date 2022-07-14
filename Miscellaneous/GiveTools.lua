@@ -14,13 +14,14 @@ if not Tool then
     wait()
 end
 
+
 local function LoadHandles()
     Humanoid:UnequipTools()
     for _, v in ipairs(Backpack:GetChildren()) do
         if v:IsA("Tool") and v ~= Tool then
     	    v.Parent = Character
     	    wait()
-    		v.Parent = Backpack
+            v.Parent = Backpack
         end
     end
 end
@@ -28,7 +29,7 @@ end
 local function SetToolsParent()
     LoadHandles()
     Humanoid:UnequipTools()
-    wait()
+    wait(0.1)
     for _, v in ipairs(Backpack:GetChildren()) do
         if v:IsA("Tool") and v ~= Tool then
           -- not exactly sure what this is but we need this for replicating the parent to the tool; test it yourself using roblox studio
