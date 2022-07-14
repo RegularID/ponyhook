@@ -20,7 +20,7 @@ local function LoadHandles()
         if v:IsA("Tool") and v ~= Tool then
     	    v.Parent = Character
     	    wait()
-    		  v.Parent = Backpack
+    		v.Parent = Backpack
         end
     end
 end
@@ -33,9 +33,9 @@ local function SetToolsParent()
         if v:IsA("Tool") and v ~= Tool then
           -- not exactly sure what this is but we need this for replicating the parent to the tool; test it yourself using roblox studio
     	    v.Parent = Character
-    		  v.Parent = Tool
-    		  v.Parent = Backpack
-    		  v.Parent = Tool
+            v.Parent = Tool
+            v.Parent = Backpack
+            v.Parent = Tool
         end
         
         wait()
@@ -57,10 +57,12 @@ local function GiveToolsPlayer(Target: Player)
         if not Tool:IsA("Tool") then continue end
         table.insert(Tools, Tool)
     end
+
     Tool.Parent = Character
     for _, Tool in ipairs(Tools) do
         local Handle = Tool:WaitForChild("Handle")
         firetouchinterest(Handle, tRoot, 0)
+        firetouchinterest(Handle, tRoot, 1)
     end
 end
 
